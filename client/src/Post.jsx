@@ -1,17 +1,23 @@
 import {formatISO9075} from 'date-fns';
+import {Link} from 'react-router-dom';
+
 export default function Post({title, summary, cover, content, createdAt, author}) {
     return (
     <div className="flex">
       <div className="max-w-lg ml-48 mt-4">
-        <div>  
+        <div className='gird gird-cols-2 gap-5'>  
           <div>
-            <img src={'http://localhost:4000/'+cover} alt="" />
+            <Link to={'/post/id'}>
+              <img src={'http://localhost:4000/'+cover} alt="" />
+            </Link>
           </div>
           <div>
-            <h2>{title}</h2>
-            <p className='flex gap-2'>
-              <a className='font-bold'>{author.name}</a>
-              <time className='text-stone-400'>{formatISO9075(new Date(createdAt))}</time>
+            <Link to={'/post/id'}>
+              <h2 className='text-2xl font-bold'>{title}</h2>
+            </Link>
+            <p className='text-stone-400 flex gap-2'>
+              <a>{author.name}</a>
+              <time>{formatISO9075(new Date(createdAt))}</time>
             </p>
             <p>{summary}</p>
           </div>

@@ -53,13 +53,19 @@ export default function Header() {
                                 <ul>
                                     {user && (
                                         <>
-                                            <li className='hover:bg-blue-100 rounded'><Link to={'/account'}>Profile</Link></li>
+                                            <Link to={'/account'} className='block hover:bg-blue-100 rounded cursor-pointer py-2 px-4'>
+                                                <li>Profile</li>
+                                            </Link>
                                         </>
                                     )}
                                     {!user && (
                                         <>
-                                            <li className='hover:bg-blue-100 rounded'><Link to={'/login'}>Log In</Link></li>
-                                            <li className='hover:bg-blue-100 rounded'><Link to={'/register'}>Register</Link></li>
+                                            <Link to={'/login'} className='block hover:bg-blue-100 rounded cursor-pointer py-2 px-4'>
+                                                <li>Log In</li>
+                                            </Link>
+                                            <Link to={'/Register'} className='block hover:bg-blue-100 rounded cursor-pointer py-2 px-4'>
+                                                <li>Register</li>
+                                            </Link>
                                         </> 
                                     )}
                                     
