@@ -3,7 +3,7 @@ import { Navigate, useParams } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import PostsPage from "./PostsPage";
+import CreatePost from "./CreatePost";
 
 export default function AccountPage() {
 
@@ -75,7 +75,7 @@ export default function AccountPage() {
                 </div>
             )}
             {subpage === 'posting' && (
-                <PostsPage />
+                <CreatePost />
             )}
         </div>
     );

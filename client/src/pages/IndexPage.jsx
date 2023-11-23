@@ -14,9 +14,12 @@ export default function IndexPage() {
     }, [])
     return(
       <>
-      {posts.length > 0 && posts.map(post => (
-        <Post {...post}/>
-      ))}
+      <div className="min-w-fit">
+        {posts.length > 0 && posts.map(post => (
+          <Post {...post}/>
+        ))}
+      </div>
+      
     </>
     
     );
