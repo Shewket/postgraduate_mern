@@ -1,6 +1,5 @@
 import './App.css'
 import {Route, Routes} from 'react-router-dom'
-import IndexPage from './pages/indexPage';
 import LoginPage from './pages/loginPage';
 import Layout from './Layout';
 import RegisterPage from './pages/RegisterPage';
@@ -8,6 +7,8 @@ import axios from 'axios';
 import { UserContextProvider } from './userContext';
 import AccountPage from './pages/AccountPage';
 import PostPage from './pages/PostPage';
+import PostsPage from './pages/PostsPage';
+import EditPost from './pages/EditPost';
 
 
 
@@ -20,12 +21,14 @@ function App() {
     <UserContextProvider>
       <Routes>
         <Route path='/' element={ <Layout/> }>
-          <Route index element={ <IndexPage/> } />
+          {/* <Route index element={ <IndexPage/> } /> */}
           <Route path='/login' element={ <LoginPage/> } />
           <Route path='/register' element={ <RegisterPage/> } />
+          <Route path='/posts' element={ <PostsPage/> } />
           <Route path='/account/:subpage?' element={ <AccountPage/>} />
           <Route path='/account/:subpage/:action' element={ <AccountPage/>} />
           <Route path='/post/:id' element={ <PostPage/>} />
+          <Route path='/post/edit/:id' element={<EditPost/>} />
         </Route>
       </Routes>
     </UserContextProvider>

@@ -1,26 +1,10 @@
 import {Link, useParams} from 'react-router-dom';
-import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import Editor from '../Editor';
 
-const  modules = {
-    toolbar: [
-      [{ 'header': [1, 2, false] }],
-      ['bold', 'italic', 'underline','strike', 'blockquote'],
-      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-      ['link', 'image'],
-      ['clean']
-    ],
-  };
-const formats = [
-    'header',
-    'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet', 'indent',
-    'link', 'image'
-  ];
-
-export default function PostsPage(){
+export default function createPostPage(){
     const {action} = useParams();
     const [title, setTitle] = useState('');
     const [summary, setSummary] = useState('');
@@ -82,13 +66,7 @@ export default function PostsPage(){
                         onChange={ev => setFiles(ev.target.files)}
                         className="mt-2"
                         />
-                    <ReactQuill 
-                        value={content} 
-                        onChange = {newValue=> setContent(newValue)}
-                        modules={modules} 
-                        formats={formats}
-                        className="mt-2"
-                        />
+                    <Editor value={content} onChange={setContent}/>
                     <button className="primary mt-5">Create Post</button>
                 </form>
                 </div>

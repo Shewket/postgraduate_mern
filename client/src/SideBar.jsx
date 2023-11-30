@@ -11,7 +11,7 @@ export default function sideBar(){
     const [submenuOpen, setSubmenuOpen] = useState(false);
     const Menus = [
         {title: "Dashboard"},
-        {title: "Post", icon: <BsPostcardFill/>, link: "/"},
+        {title: "Posts", icon: <BsPostcardFill/>, link: "/posts"},
         {title: "Chatting", icon: <HiChatBubbleLeftRight/>},
         {title: "menuElement1", link: "/login"},
         {
