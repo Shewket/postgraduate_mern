@@ -9,7 +9,7 @@ export default function PostPage(){
     const {id} = useParams();
     useEffect(() => {
         
-        fetch(`http://localhost:4000/post/${id}`)
+        fetch(`http://localhost:4000/postAPI/post/${id}`)
             .then(response => {
                 response.json().then(postInfo => {
                     setPostInfo(postInfo);
@@ -28,7 +28,7 @@ export default function PostPage(){
                     <time>{formatISO9075(new Date(postInfo.createdAt))}</time><br/>
                     <a className="font-bold">by {postInfo.author.name}</a>
                 </p>
-                {user.id === postInfo.author._id && (
+                {user && user.id === postInfo.author._id && (
                     <div className="text-center">
                         <Link to={`/post/edit/${postInfo._id}`} className="inline-flex gap-1 bg-yellow-200 text-red-500 py-2 px-6 rounded-full mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

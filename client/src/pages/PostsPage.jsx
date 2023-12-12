@@ -5,7 +5,7 @@ export default function PostsPage() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-      fetch('http://localhost:4000/post').then( response => {
+      fetch('http://localhost:4000/postAPI/post').then( response => {
         response.json().then(posts => {
           setPosts(posts);
         })
